@@ -1,0 +1,45 @@
+{
+  "name": "dsh-paper-language",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "论文语言契约：把 SCI/综合 语料提炼出的句式、搭配与禁用表达强制注入 DSH 系统提示，并提供 /paper-lang /paper-rules /paper-lint /paper-corpus 四个斜杠命令。",
+  "meta": {
+    "title": "论文语言契约",
+    "description": "用你自己的 SCI 与中文核心语料约束论文写作语言：常驻系统提示 + 语料检索 + 确定性 lint。"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./lint": "./lib/lint.js",
+    "./corpus": "./lib/corpus.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "rules",
+    "corpus",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "academic-writing",
+    "manuscript",
+    "style-guide",
+    "lint"
+  ],
+  "license": "MIT"
+}

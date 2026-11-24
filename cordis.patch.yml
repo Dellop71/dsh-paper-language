@@ -1,0 +1,21 @@
+# dsh-paper-language —— 论文语言契约
+#
+# 这一行只做一件事：把插件的宿主侧挂进插件树。插件本身再向
+# ctx.systemPrompt 注册一个常驻 section，并向 ctx.commands 注册 4 个斜杠命令。
+#
+# 配置项：
+#   mode: strict        # strict（默认，硬规则全开）| lenient（只留限用与句长）| off
+#   lang: auto          # auto | en | zh —— /paper-lint 未指定 --lang 时的默认语言
+#   order: 5000         # 系统提示里的插入位置：第一方 guidance 之后、环境上下文之前
+#   extraRules: ''      # 追加到契约末尾的课题专属要求（例如"本课题统一用 oven-dry 而非 air-dry"）
+#
+# 运行时可用 /paper-lang 改档位，开关写到 $DSH_HOME/paper-language.json，
+# 优先级高于这里的 mode/lang（改这里不会覆盖用户已经切过的档）。
+- insert:
+    - id: paper-language
+      name: dsh-paper-language
+      config:
+        mode: strict
+        lang: auto
+        order: 5000
+        extraRules: ''
