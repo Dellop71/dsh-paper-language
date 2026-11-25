@@ -69,7 +69,7 @@
 1. `本研究旨在明确{对象}对{指标}的影响，并识别{驱动因子}。`
 2. `为解析{机制}，本研究设置{处理}，测定{指标}。`
 3. `研究旨在从{角度}揭示{机制}。`
-4. `本研究假设：{处理}通过{途径}改善{指标}。`
+4. `本研究假设{处理}通过{途径}改善{指标}。`
 
 > 研究旨在从土壤酶功能角度揭示光肥耦合的土壤微生物学机制。
 > 为进一步解析不同有机物料调控下具体响应的自养固碳细菌类群，本研究基于LEfSe分析，揭示了秸秆与生物炭处理下自养群落的差异。
@@ -137,7 +137,7 @@
 > One of the key aspects of parasitism is the ability of Trichoderma hyphae to firmly adhere to the surface of nematode eggs, a process mediated by the recognition of specific molecules.
 
 **ZH**
-1. `{结果}可能是由于{机制}：{证据}。`
+1. `{结果}可能是由于{机制}，即{证据}。`
 2. `这与{作者}的结论一致，说明{推断}。`
 3. `其原因可能在于{机制}，即{过程}。`
 4. `{处理}通过{途径}改变了{指标}，从而{后果}。`
@@ -212,7 +212,35 @@
 
 ---
 
-## 10. 段落开头禁则
+## 10. 图表引用 figure / table citation
+
+**唯一写法：句末括号，紧跟被支撑的陈述。**（语料：英文 `(Fig. n)` 6.35%，`see Fig` 0.03%；中文 `（图n）` 3.3%，`见图/如图` 0.43%）
+
+**EN**
+1. `{Variable} increased by {n}% under {treatment} (Fig. {n}).`
+2. `{Variable} was highest under {T1} and lowest under {T2} (Fig. {n}A).`
+3. `The site centre was converted from the Gauss-Krüger coordinates of the master plan (Fig. 1).`
+4. `Both indices declined with {factor} (Fig. {n}B, C; Table {n}).`
+5. `{Pattern} was consistent across {levels} (Fig. {n}), although {exception} (Table {n}).`
+
+> Over two years, leaf area increased by 31.4% and 19.5% under OFSI and OFI, respectively, compared with TF (Fig. 5).
+> In contrast, the OF only resulted in a modest increase in total leaf area (Fig. 2B).
+
+**ZH**
+1. `{指标}较{CK}提高{n}%（图{n}）。`
+2. `{指标}以{T1}最高、{T2}最低（图{n}A）。`
+3. `场址中心由项目总平面图的高斯-克吕格坐标换算得到（图{n}）。`
+4. `{指标一}与{指标二}同步升高（图{n}B、C；表{n}）。`
+
+> 添加根皮苷后座囊菌纲（Dothideomycetes）相对丰度升高（图7）。
+> 不同水肥耦合处理的产量差异明显（图1）。
+
+**禁止（旧式）**：`××见图 1`、`如图 1 所示`、`详见图 1`、`see Fig. 1`、`are shown in Fig. 1`、`Fig. 1 shows …`。
+引用密度：一段 ≤3 处，相邻两句不重复引同一图号。
+
+---
+
+## 11. 段落开头禁则
 
 | 不要这样开头 | 改成 |
 |---|---|

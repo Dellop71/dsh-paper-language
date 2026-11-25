@@ -38,7 +38,7 @@
 - ✓ `T4 处理下细菌群落结构与 CK 显著分离（R² = 0.573，P = 0.001；图 4A）。`
 
 **H2 先数据，后判断。**
-顺序固定：`对象 + 变化 + 幅度/单位 + 对照基准 +（图表号）` → 至多一句校准解释。
+顺序固定：`对象 + 变化 + 幅度/单位 + 对照基准` → 至多一句校准解释。图表引用降为括号，见 H10。
 - ✓ `Compared with TF, OFSI increased leaf area by 31.4% over two years (Fig. 5).`
 - ✓ `与 CK 相比，B0P2 处理叶片光合速率提高 12.7%，但 B0P2 与 B0P3 间差异不显著。`
 
@@ -74,7 +74,46 @@
 英文不写 `carry out the measurement of`、`make an analysis of`、`has the ability to`。
 详见 §6 Chinglish 对照表。
 
-**H10 交付前必须跑 lint。**
+**H10 图表引用只放括号，紧跟它支撑的那句话。**
+不要单独写一句"××见图1"当过渡，也不要"如图1所示""见图1""Fig. 1 shows…""are shown in Fig. 1"。引用必须贴在被它支撑的陈述后面。
+
+| ✗ 旧式（语料 0.43%） | ✓ 现在期刊的写法（语料 6.6%） |
+|---|---|
+| 区位与空间本底见图 1。 | 场址中心由项目总平面图的高斯-克吕格坐标换算得到（图 1）。 |
+| 如图 7 所示，添加根皮苷后…… | 添加根皮苷后座囊菌纲相对丰度升高 12.4%（图 7）。 |
+| The location is shown in Fig. 1. | The site centre was converted from the Gauss-Krüger coordinates of the master plan (Fig. 1). |
+| As shown in Fig. 3, biochar raised SOC. | Biochar raised SOC by 18.4% (Fig. 3A). |
+| Fig. 5 shows that yield increased. | Yield increased by 31.4% under OFSI (Fig. 5). |
+
+语料依据：英文 `(Fig. n)` 203 句（6.35%），`see Fig` 1 句（0.03%），`Fig. n shows` 0 句；中文 `（图n）` 148 句（3.3%），`见图/如图` 19 句（0.43%）。
+
+**H11 不用"就……而言"这类框架。**
+`就……而言 / 就……来说 / 就……来讲 / as for / in terms of / with respect to` 都是把主语推迟的框架词，直接以对象作主语。
+- ✗ `就约束如何被内化而言，本案的规制强度接近上限。`
+- ✓ `本案的规制强度接近该类地区的上限。`
+- ✗ `就收益如何被截留而言，三个层级都对应可登记的权利主体。`
+- ✓ `三个层级（农房、集体资产、闲置空地）都对应可登记的权利主体。`
+- ✗ `In terms of yield, OFSI outperformed TF.`
+- ✓ `OFSI outyielded TF by 31.4% (Fig. 5).`
+
+语料依据：`就…而言` 7 句（0.16%），`in terms of` 7 句（0.22%），`with respect to` 5 句（0.16%）。
+
+**H12 正文不用冒号。**
+中文正文一律不用 `：`。列举用逗号或分号，解释拆成两句，因果用"因为/由于"。
+例外只有图表题注与版面字段（收稿日期、基金项目、DOI、EC 编号、比例 1∶1）。
+
+- ✗ `相关性分析表明：速效钾和全钾与细菌群落结构变化密切相关。`
+- ✓ `相关性分析表明，速效钾和全钾与细菌群落结构变化密切相关。`
+- ✗ `其作用机制在于：硫黄氧化生成亚硫酸，释放 H⁺ 降低 pH。`
+- ✓ `其作用机制在于硫黄氧化生成亚硫酸，释放 H⁺ 降低 pH。`
+- ✗ `样品分为 2 部分：一部分避光风干，另一部分冷藏。`
+- ✓ `样品分为 2 部分，一部分避光风干，另一部分冷藏。`
+
+英文同理：正文不用 `:` 引出分句（`The results: SOC increased` ✗），基因构建名 `DR5::GUS` 与比例 `1:10000` 不受限。
+
+语料依据：中文 219 句带冒号（4.9%），其中 179 句是版面字段或"机制在于："式解释、30 句是"研究表明：A；B"列举——都属于旧式排版，按 H12 一律改掉。
+
+**H13 交付前必须跑 lint。**
 ```
 node "<插件目录>/scripts/lint.mjs" --file <草稿> --lang auto
 ```
@@ -126,7 +165,7 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 - `This pattern may be attributed to {mechanism}.`
 - `The increase in {A} is consistent with {previous finding}, indicating that {inference}.`
 - `One explanation is that {A} {effect}, thereby {consequence}.`
-- `{结果}可能是由于{机制}：{证据}。`
+- `{结果}可能是由于{机制}，即{证据}。`
 - `这与{作者}的结论一致，说明{推断}。`
 
 ### 3.7 比较（comparison）
@@ -144,6 +183,20 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 - `Collectively, these results indicate that {claim}, although {boundary}.`
 - `These findings provide a basis for {specific application} in {specific system}.`
 - `综上，{处理}通过{机制}改善了{指标}，可为{具体对象}的{具体决策}提供参数依据。`
+
+### 3.10 图表引用（figure / table citation）
+
+**唯一正确位置：句末括号，紧跟它支撑的陈述。**
+
+- `场址中心由项目总平面图的高斯-克吕格坐标换算得到（图 1）。`
+- `添加根皮苷后座囊菌纲相对丰度升高 12.4%（图 7）。`
+- `Biochar raised SOC by 18.4% (Fig. 3A).`
+- `Yield increased by 31.4% under OFSI (Fig. 5).`
+- 多图并列：`（图 4A、4C）` / `(Fig. 5B, C)`；跨图表：`（图 2；表 1）`
+
+**禁止**：`××见图 1`、`如图 1 所示`、`详见图 1`、`see Fig. 1`、`are shown in Fig. 1`、`Fig. 1 shows …`、把图表当主语。
+
+**引用密度**：一段最多 3 处；相邻两句不重复引同一图号。
 
 ## 4. 结果动词与搭配
 
@@ -190,6 +243,9 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 | the reason is because | because |
 | more and more | increasing |
 | pay attention to | focus on / account for |
+| 就……而言 | 直接以该对象作主语 |
+| ……见图 1 | ……（图 1），放在被支撑的陈述后面 |
+| 研究表明：A；B | 研究表明，A；B（或拆成两句） |
 
 ## 7. 禁用与限用
 
@@ -197,9 +253,11 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 
 限用（有上限）：crucial role ≤1、plays an important role ≤1、not only…but also ≤1、furthermore ≤2、moreover ≤4、in conclusion ≤1、robust ≤2、综上所述 ≤1、重要作用 ≤2。
 
+新式写作禁用（旧排版遗留）：见图 n / 如图 n 所示 / 详见 / 参见 / see Fig. n / are shown in Fig. n / Fig. n shows；就…而言 / 就…来说 / as for / in terms of；正文冒号（含"研究表明："列举）。
+
 完整替换表见 `banned.md`。
 
-## 8. 交付前自检 12 条
+## 8. 交付前自检 15 条
 
 1. 每个数字都有单位、对照基准、图表号（若适用）。
 2. 每个 `significant/显著` 都有检验与水平。
@@ -212,4 +270,7 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 9. 局限用事实陈述，没有防御性辩解。
 10. 中英文各自成句，没有逐字对译痕迹。
 11. 图表引用编号与正文一致。
-12. lint 的 HIGH 已清零，MEDIUM 已逐条确认。
+12. **没有一句"××见图n"，所有图表引用都在括号里且紧贴被支撑的陈述。**
+13. **没有"就……而言 / 就……来说 / as for / in terms of"。**
+14. **正文没有冒号（题注与版面字段除外）。**
+15. lint 的 HIGH 已清零，MEDIUM 已逐条确认。
