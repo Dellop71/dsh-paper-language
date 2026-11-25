@@ -258,6 +258,11 @@ def main() -> int:
     ap.add_argument("--sci", default="", help="英文论文 PDF 目录（可多次运行只重建一种语言）")
     ap.add_argument("--zh", default="", help="中文论文 PDF 目录")
     ap.add_argument("--out", default=os.path.join(here, "corpus"))
+    ap.add_argument(
+        "--tag",
+        default="",
+        help="分卷标签，写成 phrases.<lang>.<tag>.jsonl（例如 wood 表示木霉专题）",
+    )
     args = ap.parse_args()
 
     if not args.sci and not args.zh:
@@ -271,9 +276,11 @@ def main() -> int:
     os.makedirs(args.out, exist_ok=True)
     stats = {"en": Counter(), "zh": Counter(), "files": {"en": 0, "zh": 0}, "failed": []}
 
+    suffix = f".{args.tag}" if args.tag else ""
+
     for lang, root, splitter, keeper, table, fnfile in (
-        ("en", args.sci, split_en, keep_en, EN_FN, "phrases.en.jsonl"),
-        ("zh", args.zh, split_zh, keep_zh, ZH_FN, "phrases.zh.jsonl"),
+        ("en", args.sci, split_en, keep_en, EN_FN, f"phrases.en{suffix}.jsonl"),
+        ("zh", args.zh, split_zh, keep_zh, ZH_FN, f"phrases.zh{suffix}.jsonl"),
     ):
         records = []
         seen = set()
@@ -324,7 +331,7 @@ def main() -> int:
         stats[lang].update(rec["fn"] for rec in records)
         stats[lang]["__total__"] = len(records)
 
-    with open(os.path.join(args.out, "stats.json"), "w", encoding="utf-8") as fh:
+    with open(os.path.join(args.out, f"stats{suffix}.json"), "w", encoding="utf-8") as fh:
         json.dump(
             {
                 "files": stats["files"],

@@ -97,7 +97,9 @@ function statusText(settings) {
     `档位：${settings.mode}　语言：${settings.lang}`,
     `规则目录：${RULES_DIR}`,
     `语料：英文 ${st?.en?.__total__ ?? '?'} 句 / 中文 ${st?.zh?.__total__ ?? '?'} 句` +
-      `（来源 ${st?.files?.en ?? '?'} + ${st?.files?.zh ?? '?'} 篇）`,
+      `（来源 ${st?.files?.en ?? '?'} + ${st?.files?.zh ?? '?'} 篇` +
+      (st?.volumes?.length > 1 ? `，分卷 ${st.volumes.join(' + ')}` : '') +
+      '）',
     `运行时开关文件：${STATE_FILE}`,
   ];
   if (settings.mode === 'off') lines.push('⚠ 当前已关闭，系统提示中不再包含语言契约。用 /paper-lang on 恢复。');
@@ -105,7 +107,7 @@ function statusText(settings) {
 }
 
 function readRuleFile(section) {
-  const files = ['paper-language.md', 'frames.md', 'banned.md'].map((f) => join(RULES_DIR, f));
+  const files = ['paper-language.md', 'frames.md', 'banned.md', 'domain-biocontrol.md'].map((f) => join(RULES_DIR, f));
   const key = String(section || '').trim().toLowerCase();
   if (!key) {
     return files
@@ -119,6 +121,10 @@ function readRuleFile(section) {
     frames: 'frames.md',
     句式: 'frames.md',
     骨架: 'frames.md',
+    domain: 'domain-biocontrol.md',
+    木霉: 'domain-biocontrol.md',
+    生防: 'domain-biocontrol.md',
+    专题: 'domain-biocontrol.md',
   };
   const target = alias[key];
   if (target) {
@@ -255,7 +261,7 @@ function registerCommands(ctx, settings) {
 
   reg({
     name: 'paper-rules',
-    description: '打印论文语言规则全文，或按关键词只看一节（gap / 结果 / 局限 / banned / frames）',
+    description: '打印论文语言规则全文，或按关键词只看一节（gap / 结果 / 局限 / banned / frames / 木霉）',
     input: { hint: '[关键词]' },
     handler(invocation) {
       const key = String(invocation?.rawInput ?? invocation?.input ?? '').trim();

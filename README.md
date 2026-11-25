@@ -50,11 +50,18 @@ node scripts/corpus_search.mjs "increased yield" --fn result --en
 ## 重建语料（新增 PDF 后）
 
 ```bash
+# 综合语料（英文 + 中文）
 python scripts/build_corpus.py --sci "<英文论文 PDF 目录>" --zh "<中文论文 PDF 目录>"
+
+# 专题分卷：写成 phrases.<lang>.<tag>.jsonl，与主卷合并检索
+python scripts/build_corpus.py --zh "<木霉专题 PDF 目录>" --tag wood
 ```
 
 脚本只依赖 pymupdf（DSH 运行时自带，路径 `$DSH_HOME/dsh-runtimes/dsh-primary-runtime/dependencies/python/python.exe`），
-会重写 `corpus/phrases.{en,zh}.jsonl` 与 `stats.json`。只重建一侧时另一个参数留空，不会覆盖已有文件。
+会重写 `corpus/phrases.<lang>[.<tag>].jsonl` 与对应的 `stats[.<tag>].json`。
+只重建一侧时另一个参数留空，不会覆盖已有文件；`/paper-corpus` 会自动加载所有分卷。
+
+当前分卷：`main`（40 篇 SCI + 59 篇中文，7 672 句）+ `wood`（193 篇木霉/生防中文，11 930 句），中文合计 16 403 句。
 
 > 仓库里不带语料：`corpus/*.jsonl` 是从第三方论文 PDF 抽出的原文句子，公开发布有版权问题。
 > 拉下来后用自己的 PDF 跑一次上面的命令即可生成。
@@ -87,6 +94,16 @@ rm -rf ~/.dsh/profiles/desktop/node_modules/dsh-paper-language
 - 不修改 DSH 本体、不 pin 版本、不依赖 peer 版本号。
 
 ## 变更
+
+### v1.2.0
+
+新增**木霉 / 生防专题语料层**：`木霉_5956845F…` 文件夹 193 篇中文文献、11 930 句，独立成分卷 `phrases.zh.wood.jsonl`。
+
+- `rules/domain-biocontrol.md`：筛选鉴定 / 拮抗 / 定殖 / 促生 / 防效 / 发酵优化 / 机理七组成型句式 + 领域动词表 + 单位写法
+- 连接词闭合集补 `从而`（365 次）、`进而`（177 次）——本领域最自然的结果连接词，之前漏了
+- 新检测：`笔者`（HIGH）、`本文` 正文自称（HIGH）、防效数值未交代试验类型（MEDIUM）
+- `/paper-rules 木霉` 直接看专题文件；`/paper-status` 显示分卷
+- 语料脚本支持 `--tag`，可分卷增量重建
 
 ### v1.1.0
 

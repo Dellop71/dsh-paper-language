@@ -1,6 +1,6 @@
 # 语料（第三方论文原文，不入库）
 corpus/*.jsonl
-corpus/stats.json
+corpus/stats*.json
 
 # 本地临时/备份
 node_modules/

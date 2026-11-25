@@ -50,8 +50,9 @@
 
 **H4 转折词闭合集。**
 英文：`However` / `Moreover` / `In addition` / `In contrast` / `Conversely` / `Therefore` / `Thus` / `Collectively`。
-中文：`然而` / `此外` / `同时` / `因此` / `综上` / `与…相比`。
+中文：`然而` / `此外` / `同时` / `因此` / `综上` / `与…相比` / `从而` / `进而`。
 一段最多一个转折开头；相邻两段不得用同一个开头；`Furthermore` 全篇 ≤2。
+`从而`、`进而` 是中文里最自然的结果连接词（木霉语料 365 / 177 次），可以用，但一段最多一次，且前面必须是真实的因果或递进关系。
 
 **H5 "显著"必须带检验。**
 出现 `significant/significantly/显著/极显著` 的句子，同句或前一句必须有 `P < 0.05`、`P < 0.01`、`LSD`、`Duncan`、`Tukey`、`ANOVA`、`差异显著` 之一。
@@ -125,6 +126,7 @@ node "<插件目录>/scripts/corpus_search.mjs" "关键词" --lang en --fn resul
 ## 3. 功能句式骨架
 
 > 以下骨架全部来自语料，可直接套用；`{}` 内替换为本文事实。完整版见 `frames.md`。
+> **木霉 / 生防方向的论文，先查 `domain-biocontrol.md`**（193 篇专题语料，11 930 句）：筛选鉴定、拮抗、定殖、促生、防效、发酵优化、机理各有成型句式，比通用骨架更贴。同一功能下领域文件优先。
 
 ### 3.1 背景（background）
 - `{Factor} has been shown to {effect} in {system} (Author, Year).`
