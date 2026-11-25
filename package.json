@@ -1,6 +1,6 @@
 {
   "name": "dsh-paper-language",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "type": "module",
   "description": "论文语言契约：把 SCI/综合 语料提炼出的句式、搭配与禁用表达强制注入 DSH 系统提示，并提供 /paper-lang /paper-rules /paper-lint /paper-corpus 四个斜杠命令。",
